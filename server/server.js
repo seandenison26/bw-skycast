@@ -14,4 +14,6 @@ app.use(bodyParser.json());
 //sets the the router
 app.use('/',router);
 
-app.listen(8080); 
+
+//sets port for app to listen on
+app.listen(3001); 

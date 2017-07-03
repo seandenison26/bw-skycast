@@ -9,6 +9,7 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "react-scripts": "1.0.10"
   },
   "scripts": {
