@@ -21,7 +21,7 @@ router.get('/api/location/:location/', (req, res) => {
 	let locStr = req.params.location;
 	tasks.getGeoLocation(locStr)
 		.then(tasks.getJSON,console.log)
-		.then((data) => res.send(data),console.log);
+		.then((data) => res.send(JSON.stringify(tasks.formatLocationData(data))),console.log);
 });
  
 //returns the forecast JSON for current day from the darksky API

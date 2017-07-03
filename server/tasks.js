@@ -36,9 +36,9 @@ function getGeoLocation(address) {
     });
 }
 
+//returns a JS object from a JSON HTTPS response
 function getJSON(apiCall) {
     return new Promise((res,rej) => { 
-        
 	var data = "";
         apiCall.on('data', (chunk) => {
             data += chunk;
@@ -49,9 +49,18 @@ function getJSON(apiCall) {
     });
 }
 
-
+//Formats location data for the app
+function formatLocationData(geocodeData) {
+	let locationData = {
+		formatted_address: geocodeData.results[0].formatted_address,
+		coordinates: geocodeData.results[0].geometry.location,
+		place_id: geocodeData.results[0].place_id
+	}
+	return locationData;
+}
 
 module.exports = {
+	formatLocationData,
 	getForecast,
 	getGeoLocation,
 	getJSON
