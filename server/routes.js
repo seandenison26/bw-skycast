@@ -17,11 +17,13 @@ router.get('/', function(req, res) {
 });
 
 //returns the location JSON from the geocoding API
-router.get('/api/location/:location/', function(req, res) {
+router.get('/api/location/:location/', (req, res) => {
 	let locStr = req.params.location;
-	res.send(locStr);
+	tasks.getGeoLocation(locStr)
+		.then(tasks.getJSON,console.log)
+		.then((data) => res.send(data),console.log);
 });
-
+ 
 //returns the forecast JSON for current day from the darksky API
 router.get('/api/forcast/current/:lat/:lng', function(req, res) {
 	res.send("API Running")

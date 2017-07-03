@@ -22,11 +22,10 @@ function getForecast(inputs) {
 
 //need to establish how the search bar sends the inputs 
 //.results[0].geometry.location);
-function getGeoLocation(inputs) {
+function getGeoLocation(address) {
     return new Promise((res,rej) => {
     const GEOCODE_KEY = "AIzaSyDOzJ8zgdsre9R30U4cLS0F6HqH69kF7tQ";
-    var addressStr = inputs.split(" ").join("+");
-    console.log(addressStr);
+    var addressStr = address.split(" ").join("+");
     var paths = {
         host: `maps.googleapis.com`,
         path: `/maps/api/geocode/json?address=${addressStr}&key=${GEOCODE_KEY}`
@@ -39,12 +38,13 @@ function getGeoLocation(inputs) {
 
 function getJSON(apiCall) {
     return new Promise((res,rej) => { 
-        var data = "";
+        
+	var data = "";
         apiCall.on('data', (chunk) => {
             data += chunk;
         });
         apiCall.on('end', () => {
-        res(JSON.parse(data));
+	res(JSON.parse(data));
         });
     });
 }
