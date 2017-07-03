@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 	res.send("API Running")
 });
 
-//returns the location JSON from the geocoding API
+//returns formatted location JSON 
 router.get('/api/location/:location/', (req, res) => {
 	let locStr = req.params.location;
 	tasks.getGeoLocation(locStr)
@@ -24,7 +24,7 @@ router.get('/api/location/:location/', (req, res) => {
 		.then((data) => res.send(JSON.stringify(tasks.formatLocationData(data))),console.log);
 });
  
-//returns the forecast JSON for current day from the darksky API
+//returns the forecast JSON for the current time
 router.get('/api/forecast/current/:lat/:lng', function(req, res) {
 	let location = {
 		lat: req.params.lat,
@@ -35,9 +35,16 @@ router.get('/api/forecast/current/:lat/:lng', function(req, res) {
 		.then((data) => res.send(data),console.log);	
 });
 
-//returns the forecast JSON from a point in time from the darksky API
+//returns the forecast JSON from a point in time 
 router.get('/api/forecast/history/:lat/:lng/:time', function(req, res) {
-	res.send("API Running")
+	let location = {
+		lat: req.params.lat,
+		lng: req.params.lng,
+		time: req.params.time
+	}
+	tasks.getHistoryForecast(location)
+		.then(tasks.getJSON,console.log)
+		.then((data) => res.send(data),console.log);	
 });
 
 

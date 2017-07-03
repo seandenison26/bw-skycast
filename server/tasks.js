@@ -2,17 +2,27 @@ const
 	fs = require('fs'),
 	HTTPS = require('https');
 
-
+//makes an api call to the darksky api for the current forecast data for a given location 
 function getCurrentForecast(inputs) {
-    
-    //lat and lng are the given position from gmaps, time is an optional parameter needed for getting points in the past
-    //need to make sure the lat and long are limited to certain amount of digits as the api call will fail if past a certain number
     return new Promise((res,rej) => { 
     const FORECAST_KEY = "2dbd8598f0f907bd6d1e1153b882fc41";
     
     var paths = {
         host: `api.darksky.net`,
         path: `/forecast/${FORECAST_KEY}/${inputs.lat},${inputs.lng}`
+    };
+    HTTPS.get(paths,res).end();
+    });
+}
+
+//makes an api call to the darksky api for forecast data for a given location at a specific point in time 
+function getHistoryForecast(inputs) {
+    return new Promise((res,rej) => { 
+    const FORECAST_KEY = "2dbd8598f0f907bd6d1e1153b882fc41";
+    
+    var paths = {
+        host: `api.darksky.net`,
+        path: `/forecast/${FORECAST_KEY}/${inputs.lat},${inputs.lng},${inputs.time}`
     };
     HTTPS.get(paths,res).end();
     });
@@ -61,6 +71,7 @@ function formatLocationData(geocodeData) {
 module.exports = {
 	formatLocationData,
 	getCurrentForecast,
+	getHistoryForecast,
 	getGeoLocation,
 	getJSON
 }
