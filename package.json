@@ -9,13 +9,15 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "cross-env": "^5.0.1",
     "nodemon": "^1.11.0",
     "react-scripts": "1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_PATH=src react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
