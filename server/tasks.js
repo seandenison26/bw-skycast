@@ -3,7 +3,7 @@ const
 	HTTPS = require('https');
 
 
-function getForecast(inputs) {
+function getCurrentForecast(inputs) {
     
     //lat and lng are the given position from gmaps, time is an optional parameter needed for getting points in the past
     //need to make sure the lat and long are limited to certain amount of digits as the api call will fail if past a certain number
@@ -16,7 +16,6 @@ function getForecast(inputs) {
     };
     HTTPS.get(paths,res).end();
     });
-    
 }
 
 
@@ -61,7 +60,7 @@ function formatLocationData(geocodeData) {
 
 module.exports = {
 	formatLocationData,
-	getForecast,
+	getCurrentForecast,
 	getGeoLocation,
 	getJSON
 }

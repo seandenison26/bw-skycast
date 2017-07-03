@@ -25,12 +25,18 @@ router.get('/api/location/:location/', (req, res) => {
 });
  
 //returns the forecast JSON for current day from the darksky API
-router.get('/api/forcast/current/:lat/:lng', function(req, res) {
-	res.send("API Running")
+router.get('/api/forecast/current/:lat/:lng', function(req, res) {
+	let location = {
+		lat: req.params.lat,
+		lng: req.params.lng
+	}
+	tasks.getCurrentForecast(location)
+		.then(tasks.getJSON,console.log)
+		.then((data) => res.send(data),console.log);	
 });
 
 //returns the forecast JSON from a point in time from the darksky API
-router.get('/api/forcast/history/:lat/:lng/:time', function(req, res) {
+router.get('/api/forecast/history/:lat/:lng/:time', function(req, res) {
 	res.send("API Running")
 });
 
