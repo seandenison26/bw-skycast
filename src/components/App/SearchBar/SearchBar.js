@@ -1,23 +1,32 @@
 import React from 'react';
+import './SearchBar.css';
 
 export default class SearchBar extends React.Component {
-    constructor(props) {
-        super(props); 
-        this.state = {
-            value: ""
-        }
-        
-    }
+	constructor(props) {
+		super(props); 
+		this.state = {
+		value: ""
+		}
+        	
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
+		}
+	
+	handleChange(event) {
+		this.setState({value: event.target.value})
+	}
+
+	handleSearch(event) {
+		event.preventDefault();
+
+		this.props.handleSearch(this.state.value);
+	}
     
-    onSubmit() {
-        
-    }
-    
-    render() {
-        return <form className="location-search">
-            <input type="text" name="location" value="Search Location"/>
-            <input type="submit" name="search-button" value="Search"/>
-        </form>
+	render() {
+	return 	<form className="location-search">
+			<input type="text" ref="location-search" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
+			<input type="submit" className="location-submit" value="Search" onClick={this.handleSearch}/>
+       		</form>
     }
 }
 

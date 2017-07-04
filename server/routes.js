@@ -54,7 +54,8 @@ router.get('/api/testLocation', function(req, res) {
 		"coordinates":{"lat":41.98522699999999,"lng":-87.79414299999999},
 		"place_id":"ChIJc60OqF3JD4gR9LgP8Wnx7VU"	
 	}
-	res.send(testLocation);
+	console.log("called");
+	res.send(JSON.stringify(testLocation));
 });
 
 //returns a static forecast json file for dev purposes
