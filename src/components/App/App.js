@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar/SearchBar';
+import ViewWindow from './ViewWindow/ViewWindow';
 import './App.css';
 
 const Title = () => <h1>SKYCAST</h1>;
@@ -16,9 +17,10 @@ class App extends Component {
     }
     
     render() {
-        return  <div className="App">
+        return  <div className="App .container">
                     <Title />
 		    <SearchBar />
+		    <ViewWindow />
                 </div>
     }
 }
