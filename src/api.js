@@ -1,8 +1,9 @@
-function getLocationData(callback) {
-	console.log("called");
-	fetch('/api/testLocation')
-	.then((res) => res.json())
-	.then(callback);
+function getLocationData(location,callback) {
+	return new Promise((res,rej) => {
+		fetch(`/api/location/${location}`)
+		.then((res) => res.json())
+		.then(res);
+	});
 }
 
 function getCurrentForecastData() {

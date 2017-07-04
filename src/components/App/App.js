@@ -19,8 +19,7 @@ class App extends Component {
 	}
     	
 	handleLocationSearch(locationSearch) {
-		console.log(locationSearch);
-		API.getLocationData((data) => console.log(data));	
+		API.getLocationData(locationSearch,(data) => console.log(data));	
 	}
 
 	updateLocation(location) {
