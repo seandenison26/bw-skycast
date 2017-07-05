@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './CurrentForecast.css';
 
 export default class CurrentForecast extends React.Component {
-	constructor(props) {
-		super(props);
-	}
   	/*
      	"time":1498920995,
       "summary":"Partly Cloudy",
