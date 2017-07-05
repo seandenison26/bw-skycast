@@ -23,15 +23,11 @@ class App extends Component {
     	
 	
 	updateLocation(location) {
-		this.setState({
-			locationData: location
-		})
+		this.setState({locationData: location})
 	}
     
 	updateForecast(forecast) {
-		this.setState({
-			forecastData: forecast
-		})
+		this.setState({forecastData: forecast})
 	}
 	
 	updateHistory(history) {
@@ -45,7 +41,9 @@ class App extends Component {
 	}
 
 	handleHistoryDateSearch(date) {
-		
+		API.getHistoryData(this.state.locationData.coordinates,date)
+		.then(this.updateHistory)
+		.catch((rej) => console.log(rej));	
 	}
 	
 	componentDidUpdate(prevProps,prevState) {
