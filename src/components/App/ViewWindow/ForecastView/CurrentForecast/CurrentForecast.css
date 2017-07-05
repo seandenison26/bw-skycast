@@ -1,4 +1,6 @@
 .current-forecast {
+	float: left;
+	display:inline;
 	width: 50%;
 	border-right: solid black 1px;
 	text-align: left;

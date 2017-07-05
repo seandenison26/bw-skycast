@@ -1,0 +1,11 @@
+.forecast-detail {
+	display: inline;
+	float: right;
+	width: 50%;
+	text-align: left;	
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
