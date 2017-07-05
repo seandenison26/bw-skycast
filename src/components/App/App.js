@@ -18,14 +18,25 @@ class App extends Component {
 	this.handleLocationSearch = this.handleLocationSearch.bind(this);
 	}
     	
-	handleLocationSearch(locationSearch) {
-		API.getLocationData(locationSearch,(data) => console.log(data));	
-	}
-
+	
 	updateLocation(location) {
-		this.setState({location: {location}})
+		this.setState({locationData: location})
 	}
     
+	updateForecast(forecast) {
+		this.setState({forecastData: forecast})
+	}
+	
+	updateHistory(history) {
+		this.setState({historyData: history})
+	}
+	
+	handleLocationSearch(locationSearch) {
+		API.getLocationData(locationSearch)
+			.then(this.updateLocation)
+			.then((data) => console.log(this.state.locationData));
+	}
+
 	render() {
         return  <div className="App .container">
                 	<Title />

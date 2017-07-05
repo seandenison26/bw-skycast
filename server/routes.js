@@ -20,8 +20,9 @@ router.get('/', function(req, res) {
 router.get('/api/location/:location/', (req, res) => {
 	let locStr = req.params.location;
 	tasks.getGeoLocation(locStr)
-		.then(tasks.getJSON,console.log)
-		.then((data) => res.send(JSON.stringify(tasks.formatLocationData(data))),console.log);
+		.then(tasks.getJSON)
+		.then((data) => res.send(JSON.stringify(tasks.formatLocationData(data))))
+		.catch((rejection) => res.send(new Error ("No location was found.")));
 });
  
 //returns the forecast JSON for the current time

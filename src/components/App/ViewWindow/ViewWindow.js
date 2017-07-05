@@ -3,19 +3,32 @@ import './ViewWindow.css';
 import Welcome from './Welcome/Welcome';
 
 export default class ViewWindow extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            view: <Welcome />
-        }
+	constructor(props) {
+		super(props)
+		this.state = {
+			view: <Welcome />,
+		}
     
-    	this.updateView = this.updateView.bind(this);
-    }
+    		this.updateView = this.updateView.bind(this);
+    	}
     
-    updateView(view) {
-        this.setState({view: view})
-    }
-    
+	updateView(v) {
+		this.setState({view: v})
+	}
+
+	componentWillReceiveProps(nextProps) {
+	}	
+	
+	componentDidUpdate(prevProps, prevState) {
+		if(Object.keys(this.props.locationData).length === 0 && this.props.locationData.constructor === Object) {
+			this.updateView(<Welcome />);
+		}
+		else if (prevProps.locationData !== this.props.locationData){
+			this.updateView(<p>{JSON.stringify(this.props.locationData)}</p>)
+		}
+			
+	}
+	
     render() {
         return <div className="view-window col-md-10 col-md-offset-1">{this.state.view}</div>
     }
