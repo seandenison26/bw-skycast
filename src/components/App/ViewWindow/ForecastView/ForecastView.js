@@ -2,7 +2,7 @@ import React from 'react';
 import './ForecastView.css';
 import CurrentForecast from './CurrentForecast/CurrentForecast'
 import ForecastDetail from './ForecastDetail/ForecastDetail'
-//import ForecastDayTab from './ForecastDayTab/ForecastDayTab'
+import ForecastDayTab from './ForecastDayTab/ForecastDayTab'
 
 
 
@@ -16,8 +16,9 @@ export default class ForecastView extends React.Component {
 		this.createTabsFromJSON = this.createTabsFromJSON.bind(this);
 	}
 	
-	createTabsFromJSON(dayArray) {
-
+	createTabsFromJSON(dailyArray) {
+		let tabs = dailyArray.map((data) => <ForecastDayTab details={data} handleTabClick={this.updateForecastDetail} />)
+		return tabs;
 	}
 	/*
 	 *<AlertBar />
@@ -26,14 +27,19 @@ export default class ForecastView extends React.Component {
 	 *<ForecastDayTabs />
 	 */ 
 	
-	updateForecastDetail(id) {
-		this.setState({currentDetail: id})	
+	updateForecastDetail(detailData) {
+		this.setState({currentDetail: <ForecastDetail details={detailData}/> })	
 	}
 	
 	render() {
 		return	<div className="forecast-view">
-				<CurrentForecast currently={this.props.forecastData.currently} />
-				{this.state.currentDetail}
+				<div className="row">
+					<CurrentForecast currently={this.props.forecastData.currently} />
+					{this.state.currentDetail}
+				</div>	
+				<div className="row">
+					{this.createTabsFromJSON(this.props.forecastData.daily.data.slice(1,this.props.forecastData.daily.length))}
+				</div>
 			</div>
 	
 	}
