@@ -10,9 +10,9 @@ class App extends Component {
 	constructor() {
 		super()
 		this.state = {
-			location: {},
-			forecast: {},
-			history: {}
+			locationData: {},
+			forecastData: {},
+			historyData: {}
         	}
 	this.updateLocation = this.updateLocation.bind(this);
 	this.handleLocationSearch = this.handleLocationSearch.bind(this);
@@ -28,9 +28,13 @@ class App extends Component {
     
 	render() {
         return  <div className="App .container">
-                    <Title />
-		    <SearchBar handleSearch={this.handleLocationSearch}/>
-		    <ViewWindow location={this.state.location}/>
+                	<Title />
+			<SearchBar handleSearch={this.handleLocationSearch}/>
+			<ViewWindow 
+				locationData={this.state.locationData}
+				forecastData={this.state.forecastData}
+				historyData={this.state.historyData}
+			/>
                 </div>
     }
 }

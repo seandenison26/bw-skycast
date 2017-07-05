@@ -1,12 +1,15 @@
 import React from 'react';
-import './ViewWindow.css'
+import './ViewWindow.css';
+import Welcome from './Welcome/Welcome';
 
 export default class ViewWindow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            view: "place holder element"
+            view: <Welcome />
         }
+    
+    	this.updateView = this.updateView.bind(this);
     }
     
     updateView(view) {
