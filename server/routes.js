@@ -49,7 +49,7 @@ router.get('/api/forecast/history/:lat/:lng/:time', function(req, res) {
 });
 
 //returns a static forecast json file for dev purposes
-router.get('/api/location/testLocation', function(req, res) {
+router.get('/api/testLocation', function(req, res) {
 	let testLocation = {
 		"formatted_address":"5700 N Natoma Ave, Chicago, IL 60631, USA",
 		"coordinates":{"lat":41.98522699999999,"lng":-87.79414299999999},

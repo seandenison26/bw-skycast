@@ -32,7 +32,7 @@ class App extends Component {
 	}
 	
 	handleLocationSearch(locationSearch) {
-		API.getLocationData(locationSearch)
+		API.getTestLocationData(locationSearch)
 			.then(this.updateLocation)
 			.then((data) => console.log(this.state.locationData));
 	}

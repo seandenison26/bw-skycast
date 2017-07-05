@@ -1,6 +1,7 @@
 import React from 'react';
 import './ViewWindow.css';
 import Welcome from './Welcome/Welcome';
+import LocationBar from './LocationBar/LocationBar';
 
 export default class ViewWindow extends React.Component {
 	constructor(props) {
@@ -30,7 +31,12 @@ export default class ViewWindow extends React.Component {
 	}
 	
     render() {
-        return <div className="view-window col-md-10 col-md-offset-1">{this.state.view}</div>
+        return 	<div className="view-window col-md-10 col-md-offset-1">
+		 	<LocationBar 
+		    		location={this.props.locationData}
+		    	/>   
+			{this.state.view}
+		</div>
     }
 }
 
