@@ -24,7 +24,7 @@ export default class CurrentForecast extends React.Component {
 	*/
 	render() {
 		return 	<div className="current-forecast">
-				<p>Current Date: {new Date(this.props.currently.time).toString()}</p>
+				<p>Current Date: {new Date(this.props.currently.time * 1000).toString()}</p>
 				<p>Summary: {this.props.currently.summary}</p>
 				<p>Icon: {this.props.currently.icon}</p>
 				<p>Temperature: {this.props.currently.temperature}</p>	

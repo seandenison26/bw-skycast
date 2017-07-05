@@ -1,0 +1,11 @@
+.forecast-view {
+
+}
+
+.forecast-view .tab-row {
+	width: 100%;
+	position:absolute;
+	bottom: 0;
+	margin-left: 0;
+	
+}

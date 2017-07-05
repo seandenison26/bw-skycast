@@ -15,7 +15,6 @@ function getTestLocationData(location) {
 }
 
 function getTestForecastData(coordinates) {
-	console.log(coordinates);
 	return new Promise((res,rej) => {
 		fetch(`/api/testForecast`)
 		.then((response) => response.json())
@@ -23,7 +22,12 @@ function getTestForecastData(coordinates) {
 	});
 }
 
-function getForecastData() {
+function getForecastData(coords) {
+	return new Promise((res,rej) => {
+		fetch(`/api/forecast/current/${coords.lat}/${coords.lng}`)
+		.then((response) => response.json())
+		.then(res);
+	});
 	
 }
 

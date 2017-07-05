@@ -22,9 +22,6 @@ export default class ForecastView extends React.Component {
 	}
 	/*
 	 *<AlertBar />
-	 *<CurrentForecast />
-	 *<ForecastDetail />
-	 *<ForecastDayTabs />
 	 */ 
 	
 	updateForecastDetail(detailData) {
@@ -37,8 +34,8 @@ export default class ForecastView extends React.Component {
 					<CurrentForecast currently={this.props.forecastData.currently} />
 					{this.state.currentDetail}
 				</div>	
-				<div className="row">
-					{this.createTabsFromJSON(this.props.forecastData.daily.data.slice(1,this.props.forecastData.daily.length))}
+				<div className="row tab-row">
+					{this.createTabsFromJSON(this.props.forecastData.daily.data)}
 				</div>
 			</div>
 	

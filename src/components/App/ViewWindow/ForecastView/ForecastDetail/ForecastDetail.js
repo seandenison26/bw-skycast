@@ -10,11 +10,11 @@ export default class ForecastDetail extends React.Component {
 
 	render() {
 		return 	<div className="forecast-detail">
-				<p>Date: {new Date(this.props.details.time).toString()}</p>
+				<p>Date: {new Date(this.props.details.time * 1000).toString()}</p>
 				<p>Summary: {this.props.details.summary}</p>
 				<p>ICON: {this.props.details.icon}</p>
-				<p>Sunrise: {new Date(this.props.details.sunriseTime).toString()}</p>
-				<p>Sunset: {new Date(this.props.details.sunsetTime).toString()}</p>
+				<p>Sunrise: {new Date(this.props.details.sunriseTime * 1000).toString()}</p>
+				<p>Sunset: {new Date(this.props.details.sunsetTime * 1000).toString()}</p>
 				<p>Moonphase: {(this.props.details.moonPhase)}</p>
 				<p>High: {this.props.details.temperatureMax}</p>			
 				<p>Low: {this.props.details.temperatureMin}</p>			

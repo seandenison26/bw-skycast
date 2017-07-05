@@ -18,6 +18,7 @@ class App extends Component {
 	this.updateForecast = this.updateForecast.bind(this);
 	this.updateHistory = this.updateHistory.bind(this);
 	this.handleLocationSearch = this.handleLocationSearch.bind(this);
+	this.handleHistoryDateSearch = this.handleHistoryDateSearch.bind(this);
 	}
     	
 	
@@ -38,14 +39,18 @@ class App extends Component {
 	}
 	
 	handleLocationSearch(locationSearch) {
-		API.getTestLocationData(locationSearch)
+		API.getLocationData(locationSearch)
 		.then(this.updateLocation)
 		.catch((rej) => console.log(rej));
 	}
 
+	handleHistoryDateSearch(date) {
+		
+	}
+	
 	componentDidUpdate(prevProps,prevState) {
 		if(this.state.locationData !== prevState.locationData) {
-			API.getTestForecastData(this.state.locationData.coordinates)
+			API.getForecastData(this.state.locationData.coordinates)
 			.then(this.updateForecast)
 			.catch((rej) => console.log(rej));
 		}

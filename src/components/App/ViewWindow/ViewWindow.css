@@ -1,8 +1,8 @@
 .view-window {
+	position: relative;
 	height: 75vh;
 	background-color: white;
 	border-radius: 5px;
 	border-color: black;
-	margin-top: 2em;
 	padding: 1px;
 }
