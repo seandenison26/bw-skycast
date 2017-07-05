@@ -2,6 +2,7 @@ import React from 'react';
 import './ViewWindow.css';
 import Welcome from './Welcome/Welcome';
 import LocationBar from './LocationBar/LocationBar';
+import ForecastView from './ForecastView/ForecastView';
 
 export default class ViewWindow extends React.Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ export default class ViewWindow extends React.Component {
 			this.updateView(<Welcome />);
 		}
 		else if (prevProps.forecastData !== this.props.forecastData){
-			this.updateView(<p>{JSON.stringify(this.props.forecastData)}</p>)
+			this.updateView(<ForecastView forecastData={this.props.forecastData}/>)
 		}
 			
 	}

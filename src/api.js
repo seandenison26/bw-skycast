@@ -15,6 +15,7 @@ function getTestLocationData(location) {
 }
 
 function getTestForecastData(coordinates) {
+	console.log(coordinates);
 	return new Promise((res,rej) => {
 		fetch(`/api/testForecast`)
 		.then((response) => response.json())

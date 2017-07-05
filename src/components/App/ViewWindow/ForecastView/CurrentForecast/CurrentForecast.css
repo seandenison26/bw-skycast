@@ -1,0 +1,8 @@
+.current-forecast {
+	width: 50%;
+	border-right: solid black 1px;
+	text-align: left;
+	height:auto;
+	padding-left: 5%;
+
+}
