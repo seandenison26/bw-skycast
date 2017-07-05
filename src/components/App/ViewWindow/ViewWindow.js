@@ -24,14 +24,14 @@ export default class ViewWindow extends React.Component {
 		if(Object.keys(this.props.locationData).length === 0 && this.props.locationData.constructor === Object) {
 			this.updateView(<Welcome />);
 		}
-		else if (prevProps.locationData !== this.props.locationData){
-			this.updateView(<p>{JSON.stringify(this.props.locationData)}</p>)
+		else if (prevProps.forecastData !== this.props.forecastData){
+			this.updateView(<p>{JSON.stringify(this.props.forecastData)}</p>)
 		}
 			
 	}
 	
     render() {
-        return 	<div className="view-window col-md-10 col-md-offset-1">
+        return 	<div className="view-window col-md-10 col-md-offset-1 .container-fluid">
 		 	<LocationBar 
 		    		location={this.props.locationData}
 		    	/>   
