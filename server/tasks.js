@@ -24,6 +24,9 @@ function getHistoryForecast(inputs) {
         host: `api.darksky.net`,
         path: `/forecast/${FORECAST_KEY}/${inputs.lat},${inputs.lng},${inputs.time}`
     };
+
+	    console.log(paths.path);
+	    
     HTTPS.get(paths,res).end();
     });
 }

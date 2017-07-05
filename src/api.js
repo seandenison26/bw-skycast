@@ -31,7 +31,12 @@ function getForecastData(coords) {
 	
 }
 
-function getHistoryData() {
+function getHistoryData(coords, time) {
+	return new Promise((res,rej) => {
+		fetch(`/api/forecast/history/${coords.lat}/${coords.lng}/${time}`)
+		.then((response) => response.json())
+		.then(res);
+	});
 
 }
 

@@ -54,6 +54,12 @@ class App extends Component {
 			.then(this.updateForecast)
 			.catch((rej) => console.log(rej));
 		}
+		
+		if(this.state.locationData !== prevState.locationData) {
+			API.getHistoryData(this.state.locationData.coordinates,Math.floor(new Date().getTime()/1000))
+			.then(this.updateHistory)
+			.catch((rej) => console.log(rej));
+		}
 	}
 
 	render() {
