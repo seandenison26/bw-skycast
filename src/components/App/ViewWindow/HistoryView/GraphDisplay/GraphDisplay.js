@@ -23,7 +23,7 @@ export default class GraphDisplay extends React.Component {
 	render() {
 		return 	<div className="graph-display col-md-10">
 				<LineChart 
-					choice={this.state.graphChoice}
+					choice={this.state.chartChoice}
 					data={this.props.data}
 				/>		
 				

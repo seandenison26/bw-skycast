@@ -14,50 +14,36 @@ export default class LineChart extends React.Component {
 		this.getData = this.getData.bind(this);	
 	}
 	
-	getData() {
-
+	getData(choice) {
+		return this.props.data.map((obj) => {
+			return {time: (new Date(obj.time * 1000)), count: obj[choice]}
+		}); 
 	}
 
 	render() {
-		var data=[
-        	  	{day:'02-11-2016',count:180},
-          	  	{day:'02-12-2016',count:250},
-        	    	{day:'02-13-2016',count:150},
-            		{day:'02-14-2016',count:496},
-          	  	{day:'02-15-2016',count:140},
-          	  	{day:'02-16-2016',count:380},
-          	  	{day:'02-17-2016',count:100},
-          	  	{day:'02-18-2016',count:150}
-       		];		
-		
-		var margin = {top: 5, right: 50, bottom: 20, left: 50},
+		var data = this.getData(this.props.choice);
+
+		//set dimensions
+		var margin = {top: 20, right: 20, bottom: 20, left: 20},
             		w = this.state.width - (margin.left + margin.right),
             		h = this.props.height - (margin.top + margin.bottom);
 		
-		var parseDate = d3.timeParse("%m-%d-%Y");
- 
-        	data.forEach(function (d) {
-            		d.date = parseDate(d.day);
-        	});
-
+		
 		var transform='translate(' + margin.left + ',' + margin.top + ')';
 		
-		var x = d3.scaleTime()
-            		.domain(d3.extent(data, function (d) {
-                	return d.date;
-           		 }))
-            		.rangeRound([0, w]);	
+		//set range
+		var x = d3.scaleTime().domain(d3.extent(data, (d) => d.time)).rangeRound([0, w]);
 
-		var y = d3.scaleLinear()
-            		.domain([0,d3.max(data,function(d){
-                	return d.count+100;
-            		})])
-            		.range([h, 0]);
- 
-	        var line = d3.line()
-        	        .x(function(d) { return x(d.date); })
-    			.y(function(d) { return y(d.count); });
+            	
+		var y = d3.scaleLinear().domain(d3.extent(data, (d) => d.count)).rangeRound([h, 0]);	
 
+   	
+	
+				
+		var line = d3.line().x(function(d) { return x(d.time);}).y(function(d) { return y(d.count); });
+
+
+        	           		
 		var xAxis = d3.axisBottom(x).tickFormat(function(d){ return d.x;});
 		var yAxis = d3.axisLeft(y);
  
@@ -66,7 +52,11 @@ export default class LineChart extends React.Component {
    			.ticks(5)
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
-		console.log(data);	
+		
+		console.log(y(75.71));
+		console.log(y(75));
+		
+			
 		return <svg className="line-chart" width={this.state.width} height={this.props.height}>
     				<g transform={transform}>
        		 		<Grid h={h} grid={yGrid} gridType="y"/>
@@ -79,11 +69,9 @@ export default class LineChart extends React.Component {
 }
 
 LineChart.defaultProps = {
-		width: 800,
-		height: 300,
-		margins: {top: 5, right: 5, bottom: 5, left: 5}
+		width: 1000,
+		height: 800
 }
-
 
 class Axis extends React.Component {
 	constructor(props) {
