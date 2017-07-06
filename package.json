@@ -5,6 +5,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "d3": "^4.9.1",
     "express": "^4.15.3",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
