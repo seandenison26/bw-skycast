@@ -52,25 +52,23 @@ export default class LineChart extends React.Component {
    			.ticks(5)
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
-		
-		console.log(y(75.71));
-		console.log(y(75));
-		
 			
-		return <svg className="line-chart" width={this.state.width} height={this.props.height}>
-    				<g transform={transform}>
-       		 		<Grid h={h} grid={yGrid} gridType="y"/>
-       		 		<Axis h={h} axis={yAxis} axisType="y" />
-        			<Axis h={h} axis={xAxis} axisType="x"/>
-	        		<path className="line shadow" d={line(data)} strokeLinecap="round"/>
- 		   	</g>
-			</svg>	
+		return <div className="chart">
+				<svg className="line-chart" width={this.state.width} height={this.props.height}>
+    					<g transform={transform}>
+       		 			<Grid h={h} grid={yGrid} gridType="y"/>
+       		 			<Axis h={h} axis={yAxis} axisType="y" />
+        				<Axis h={h} axis={xAxis} axisType="x"/>
+	        			<path className="line" d={line(data)} strokeLinecap="round"/>
+ 		   		</g>
+				</svg>	
+			</div>
 	}
 }
 
 LineChart.defaultProps = {
-		width: 1000,
-		height: 800
+		width: 760,
+		height: 450
 }
 
 class Axis extends React.Component {
@@ -80,22 +78,25 @@ class Axis extends React.Component {
 	}
 
 	renderAxis() {
+		console.log("called");
 		var node = ReactDOM.findDOMNode(this);
 		d3.select(node).call(this.props.axis);
 	}
 	
-	componenetDidUpdate() {
+	componentDidUpdate() {
 		this.renderAxis()
 	}
 	
-	componenetDidMount() {
+	componentDidMount() {
+		console.log("mounted");	
 		this.renderAxis()
 	}
 
 	render() {
-		var translate = `translate(0,${this.props.h})`;
-		return <g> className="axis" transform={this.props.axisType=='x'?translate:""} </g>
-	}	
+		var translate = "translate(0," +  this.props.h +")";
+		return <g className="axis" transform={this.props.axisType=='x'?translate:""}> </g>
+	}	 
+            
 }	
 
 
@@ -110,17 +111,18 @@ class Grid extends React.Component {
 		d3.select(node).call(this.props.grid);
 	}
 	
-	componenetDidUpdate() {
+	componentDidUpdate() {
 		this.renderGrid()
 	}
 	
-	componenetDidMount() {
+	componentDidMount() {
+		console.log("mounted");
 		this.renderGrid()
 	}
 
 	render() {
 		var translate = `translate(0,${this.props.h})`;
-		return <g> className="y-grid" transform={this.props.gridType=='x'?translate:""} </g>
+		return <g className="y-grid" transform={this.props.gridType=='x'?translate:""}> </g>
 	}	
 }
 
