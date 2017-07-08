@@ -18,7 +18,7 @@ class App extends Component {
 	this.updateForecast = this.updateForecast.bind(this);
 	this.updateHistory = this.updateHistory.bind(this);
 	this.handleLocationSearch = this.handleLocationSearch.bind(this);
-	this.handleHistoryDateSearch = this.handleHistoryDateSearch.bind(this);
+	this.handleHistorySearch = this.handleHistorySearch.bind(this);
 	}
     	
 	
@@ -40,7 +40,7 @@ class App extends Component {
 		.catch((rej) => console.log(rej));
 	}
 
-	handleHistoryDateSearch(date) {
+	handleHistorySearch(date) {
 		API.getHistoryData(this.state.locationData.coordinates,date)
 		.then(this.updateHistory)
 		.catch((rej) => console.log(rej));	
@@ -63,11 +63,12 @@ class App extends Component {
 	render() {
         return  <div className="App .container">
                 	<Title />
-			<SearchBar handleSearch={this.handleLocationSearch}/>
 			<ViewWindow 
 				locationData={this.state.locationData}
 				forecastData={this.state.forecastData}
 				historyData={this.state.historyData}
+				handleLocationSearch={this.handleLocationSearch}
+				handleHistorySearch={this.handleHistorySearch}
 			/>
                 </div>
     }

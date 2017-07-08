@@ -11,13 +11,18 @@ export default class LineChart extends React.Component {
 		this.state = {
 			width: this.props.width
 		}
-		this.getData = this.getData.bind(this);	
+		this.getData = this.getData.bind(this);
+		this.getViewbox = this.getViewbox.bind(this);	
 	}
 	
 	getData(choice) {
 		return this.props.data.map((obj) => {
 			return {time: (new Date(obj.time * 1000)), count: obj[choice]}
 		}); 
+	}
+	
+	getViewbox() {
+		return `0 0 ${this.state.width} ${this.props.height}`
 	}
 
 	render() {
@@ -44,7 +49,7 @@ export default class LineChart extends React.Component {
 
 
         	           		
-		var xAxis = d3.axisBottom(x).tickFormat(function(d){ return d.x;});
+		var xAxis = d3.axisBottom(x);
 		var yAxis = d3.axisLeft(y);
  
 		var yGrid = d3.axisLeft(y)
@@ -53,8 +58,15 @@ export default class LineChart extends React.Component {
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
 			
-		return <div className="chart">
-				<svg className="line-chart" width={this.state.width} height={this.props.height}>
+		return <div className="chart col-md-8">
+					<h3>{this.props.choice}</h3>
+				<svg 
+					className="line-chart" 
+					width={this.state.width} 
+					height={this.props.height}
+					viewbox={this.getViewbox()}
+					preserveAspectRatio="xMidYMid meet"
+				>
     					<g transform={transform}>
        		 			<Grid h={h} grid={yGrid} gridType="y"/>
        		 			<Axis h={h} axis={yAxis} axisType="y" />
@@ -67,8 +79,8 @@ export default class LineChart extends React.Component {
 }
 
 LineChart.defaultProps = {
-		width: 760,
-		height: 450
+		width: 720,
+		height: 560
 }
 
 class Axis extends React.Component {

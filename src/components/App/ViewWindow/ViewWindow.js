@@ -4,7 +4,8 @@ import Welcome from './Welcome/Welcome';
 import LocationBar from './LocationBar/LocationBar';
 import ForecastView from './ForecastView/ForecastView';
 import HistoryView from './HistoryView/HistoryView';
-import NavBar from './NavBar/NavBar'
+import NavBar from './NavBar/NavBar';
+import SearchBar from './SearchBar/SearchBar';
 
 export default class ViewWindow extends React.Component {
 	constructor(props) {
@@ -69,6 +70,7 @@ export default class ViewWindow extends React.Component {
 		    		handleForecastClick={this.getForecastView}
 		    		handleHistoryClick={this.getHistoryView}
 		    	/>
+		    	<SearchBar handleSearch={this.props.handleLocationSearch}/>
 		    	<div className="view-window col-md-10 col-md-offset-1 .container">
 		 		<LocationBar 
 		    			location={this.props.locationData}

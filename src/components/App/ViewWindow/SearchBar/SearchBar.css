@@ -1,0 +1,14 @@
+.search-bar {
+	width: 25%;
+	display: inline;
+
+}
+
+.location-search {
+	
+}
+
+.location-search .location-submit {
+	height: 100%;	
+	display: inline;
+}
