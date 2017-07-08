@@ -64,7 +64,7 @@ export default class LineChart extends React.Component {
 					className="line-chart" 
 					width={this.state.width} 
 					height={this.props.height}
-					viewbox={this.getViewbox()}
+					viewBox={this.getViewbox()}
 					preserveAspectRatio="xMidYMid meet"
 				>
     					<g transform={transform}>
@@ -90,7 +90,6 @@ class Axis extends React.Component {
 	}
 
 	renderAxis() {
-		console.log("called");
 		var node = ReactDOM.findDOMNode(this);
 		d3.select(node).call(this.props.axis);
 	}
@@ -100,7 +99,6 @@ class Axis extends React.Component {
 	}
 	
 	componentDidMount() {
-		console.log("mounted");	
 		this.renderAxis()
 	}
 

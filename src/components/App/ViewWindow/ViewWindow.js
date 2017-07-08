@@ -43,7 +43,7 @@ export default class ViewWindow extends React.Component {
 		}
 		
 		else {
-			this.updateView(<HistoryView historyData={this.props.historyData}/>);	
+			this.updateView(<HistoryView handleSearch={this.props.handleHistorySearch} historyData={this.props.historyData}/>);	
 		}
 	}
 
@@ -59,9 +59,14 @@ export default class ViewWindow extends React.Component {
 	}	
 	
 	componentDidUpdate(prevProps, prevState) {
+		if(this.props.historyData !== prevProps.historyData && prevState.view.type === HistoryView) {
+			this.getHistoryView();	
+		}
+		
 		if(this.props.forecastData !== prevProps.forecastData) {
 			this.getForecastView();
 		}
+		
 	}
 			
 
