@@ -7,6 +7,8 @@ import HistoryView from './HistoryView/HistoryView';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
 
+const Logo = () => <h1>SKYCAST</h1>;
+
 export default class ViewWindow extends React.Component {
 	constructor(props) {
 		super(props)
@@ -66,13 +68,21 @@ export default class ViewWindow extends React.Component {
 	
     render() {
         return 	<div>
-			<NavBar 
+			<div className="header">
+				<Logo className="col-md-4"/>
+		    	
+		    		<SearchBar className="col-md-4 col-offset-2" handleSearch={this.props.handleLocationSearch}/>
+	    			
+		    	</div>
+		    	
+		    	<div className="view-window col-md-10 col-md-offset-1 .container">
+		 	 <NavBar 
+	   			className= "col-md-4 col-offset-2"  
 		    		handleForecastClick={this.getForecastView}
 		    		handleHistoryClick={this.getHistoryView}
 		    	/>
-		    	<SearchBar handleSearch={this.props.handleLocationSearch}/>
-		    	<div className="view-window col-md-10 col-md-offset-1 .container">
-		 		<LocationBar 
+	
+		    	<LocationBar 
 		    			location={this.props.locationData}
 		    		/>   
 				{this.state.view}

@@ -6,3 +6,11 @@
 	border-color: black;
 	padding: 1px;
 }
+
+h1 {
+	display: inline;
+}
+
+.header {
+	margin: 2%;
+}

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import API from '../../api.js' 
-import SearchBar from './SearchBar/SearchBar';
 import ViewWindow from './ViewWindow/ViewWindow';
 import './App.css';
 
-const Title = () => <h1>SKYCAST</h1>;
 
 class App extends Component {
 	constructor() {
@@ -62,7 +60,6 @@ class App extends Component {
 
 	render() {
         return  <div className="App .container">
-                	<Title />
 			<ViewWindow 
 				locationData={this.state.locationData}
 				forecastData={this.state.forecastData}

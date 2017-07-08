@@ -1,11 +1,11 @@
 .search-bar {
 	width: 25%;
 	display: inline;
-
+	margin-left: 25%;
 }
 
 .location-search {
-	
+	display: inline;	
 }
 
 .location-search .location-submit {
