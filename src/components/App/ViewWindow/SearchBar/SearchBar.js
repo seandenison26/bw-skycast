@@ -20,8 +20,7 @@ export default class SearchBar extends React.Component {
 		this.setState({value: event.target.value})
 	}
 
-	handleSearch(event) {
-		event.preventDefault();
+	handleSearch() {
 		let array = Cookies.getJSON('search');
 		if(array === undefined) {
 			Cookies.set('search', [this.state.value])
@@ -34,18 +33,18 @@ export default class SearchBar extends React.Component {
 	}
     
 	getSearchHistory() {
-		return Cookies.getJSON('search').map(search => <MenuItem value={search}>{search}</MenuItem>);
+		return Cookies.getJSON('search').map(search => <MenuItem eventKey={search}>{search}</MenuItem>);
 	}
 
 	searchSelect(event) {
-		this.setState({value: event.target.value});
-		console.log(this.state.value);
+		this.setState({value: event});
+		this.handleSearch();
 	}
 
 	render() {
 			return	<FormGroup bsSize="lg" className="location-search">
 				<FormControl type="text" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
-				<DropdownButton bsSize="lg" bsStyle="default"  title="Search History" id="search-history">
+				<DropdownButton bsSize="lg" bsStyle="default" onSelect={evt => this.searchSelect(evt)} title="Search History" id="search-history">
 					{this.getSearchHistory()}	
 				</DropdownButton>
 			<Button bsSize="lg" bsStyle="default" type="submit" className="location-submit" value="Search" onClick={this.handleSearch}>Search!</Button>
