@@ -5,4 +5,5 @@ body {
 	height: 100%;
 	background-image: url('./images/clouds.jpeg');
 	background-size:cover;
+	font-family: 'Amaranth', sans-serif;
 }
