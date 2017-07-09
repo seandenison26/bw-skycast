@@ -6,9 +6,9 @@ import ForecastView from './ForecastView/ForecastView';
 import HistoryView from './HistoryView/HistoryView';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
+import Logo from"../../../images/skycast-logo.png";
 //import WeatherIcons from "../../../images/weather-icons" 
 
-const Logo = () => <h1>SKYCAST</h1>;
 
 export default class ViewWindow extends React.Component {
 	constructor(props) {
@@ -75,7 +75,9 @@ export default class ViewWindow extends React.Component {
     render() {
         return 	<div>
 			<div className="header">
-		    		<Logo className="col-md-4"/>
+		    		<div className="logo-container">
+		    		<img src={Logo} className="logo" alt="Logo"/>
+		    		</div>
 		    		<SearchBar className="col-md-4 col-offset-2" handleSearch={this.props.handleLocationSearch}/>
 		    	</div>
 		    	

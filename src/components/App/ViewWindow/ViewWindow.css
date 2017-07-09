@@ -7,10 +7,18 @@
 	padding: 1px;
 }
 
-h1 {
+.logo-container {
+	display:inline;
+	margin-right: 15%;
+}
+
+img .logo {
 	display: inline;
+	height: 25%;
+	width: 25%;
 }
 
 .header {
-	margin: 2%;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
