@@ -7,7 +7,7 @@ import HistoryView from './HistoryView/HistoryView';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
 import Logo from"../../../images/skycast-logo.png";
-//import WeatherIcons from "../../../images/weather-icons" 
+import WeatherIcon from "./WeatherIcon/WeatherIcon" 
 
 
 export default class ViewWindow extends React.Component {

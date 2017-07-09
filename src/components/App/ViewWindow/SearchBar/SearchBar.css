@@ -1,6 +1,7 @@
+
 .search-bar {
 	width: 25%;
-	display: inline;
+	display: inline-block;
 	
 }
 
@@ -8,7 +9,10 @@
 	display: inline;	
 }
 
+.search-buttons {
+	display:inline-block;
+}
+
 .location-search .location-submit {
-	height: 100%;	
 	display: inline;
 }
