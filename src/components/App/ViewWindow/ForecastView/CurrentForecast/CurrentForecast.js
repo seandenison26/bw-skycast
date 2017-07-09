@@ -1,6 +1,8 @@
 import React from 'react';
 import './CurrentForecast.css';
 import WeatherIcon from '../../WeatherIcon/WeatherIcon';
+import {DateFormat} from '../../../../../util.js';
+
 export default class CurrentForecast extends React.Component {
   	/*
      	"time":1498920995,
@@ -23,16 +25,18 @@ export default class CurrentForecast extends React.Component {
 
 	*/
 	render() {
+		
+
 		return 	<div className="current-forecast">
-				<p><bold>Current Date </bold>: {new Date(this.props.currently.time * 1000).toString()}</p>
-				<p>Summary: {this.props.currently.summary}</p>
+				<h2><bold>Current Date </bold>: {DateFormat.getDateString(new Date(this.props.currently.time * 1000))}</h2>
 				<WeatherIcon className="current-icon" icon={`wi-forecast-io-${this.props.currently.icon}`}/>
-				<p>Temperature: {this.props.currently.temperature}</p>	
-				<p>Feels Like: {this.props.currently.apparentTemperature}</p>	
-				<p>Chance of Precipitation: {this.props.currently.precipProbability}</p>
+				<p>Summary: {this.props.currently.summary}</p>
+				<p>Temperature: {Math.floor(this.props.currently.temperature)}&deg; F</p>	
+				<p>Feels Like: {Math.floor(this.props.currently.apparentTemperature)}&deg; F</p>	
+				<p>Chance of Precipitation: {this.props.currently.precipProbability}&#37;</p>
 				<p>Precipitation: {this.props.currently.precipIntensity} in.</p>
-				<p>Dew Point: {this.props.currently.dewPoint}</p>
-				<p>Humidity: {this.props.currently.humidity}</p>
+				<p>Dew Point: {this.props.currently.dewPoint}&deg;</p>
+				<p>Humidity: {this.props.currently.humidity}&#37;</p>
 				<p>Wind Bearing: {this.props.currently.windBearing}</p>
 				<p>Wind Gust: {this.props.currently.windGust}</p>
 				<p>Wind Speed: {this.props.currently.windSpeed}</p>

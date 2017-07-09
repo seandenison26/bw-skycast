@@ -28,8 +28,8 @@ export default class ForecastDayTab extends React.Component {
 		return 	<Button className="forecast-day-tab col-md-1" onClick={this.handleClick}>
 				{this.getButtonHeader} 
 				<WeatherIcon className="tab-icon" icon={`wi-forecast-io-${this.props.details.icon}`}/>
-				<p className="high">High: {Math.floor(this.props.details.temperatureMax)}</p>
-				<p className="low">Low: {Math.floor(this.props.details.temperatureMin)}</p>
+				<p className="high">High: {Math.floor(this.props.details.temperatureMax)}&deg; F</p>
+				<p className="low">Low: {Math.floor(this.props.details.temperatureMin)}&deg; F</p>
 			</Button>
 	}
 }
