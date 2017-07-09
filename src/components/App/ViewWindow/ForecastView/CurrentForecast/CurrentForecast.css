@@ -16,8 +16,22 @@
 
 .current-forecast .wi {
 	font-size: 6em;
+	margin-bottom: 5%;
 }
 
 .current-forecast h2 {
 	margin-bottom: 4%;
+
+}
+
+.detail-col {
+	display:inline;
+	float:left;
+	margin-left: 25%;
+}
+
+.wind-col {
+	display:inline;
+	float: right;
+	margin-right: 25%;
 }
