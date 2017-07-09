@@ -3,4 +3,12 @@
 	width: 12.5%;
 	height: 10%;
 	background-color: ;
+	font-size: 1.5em;
+}
+
+.forecast-day-tab .wi {
+	font-size: 3.5em;
+	margin-top: 7%;
+	margin-bottom: 7%;
+
 }

@@ -92,6 +92,8 @@ export default class ViewWindow extends React.Component {
 		    			location={this.props.locationData}
 		    		/>   
 				{this.state.view}
+
+	    			<WeatherIcon icon="wi-forecast-io-clear-day"/>
 			</div>
     		</div>
     }

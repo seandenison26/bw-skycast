@@ -1,6 +1,6 @@
 import React from 'react';
 import './CurrentForecast.css';
-
+import WeatherIcon from '../../WeatherIcon/WeatherIcon';
 export default class CurrentForecast extends React.Component {
   	/*
      	"time":1498920995,
@@ -24,9 +24,9 @@ export default class CurrentForecast extends React.Component {
 	*/
 	render() {
 		return 	<div className="current-forecast">
-				<p>Current Date: {new Date(this.props.currently.time * 1000).toString()}</p>
+				<p><bold>Current Date </bold>: {new Date(this.props.currently.time * 1000).toString()}</p>
 				<p>Summary: {this.props.currently.summary}</p>
-				<p>Icon: {this.props.currently.icon}</p>
+				<WeatherIcon className="current-icon" icon={`wi-forecast-io-${this.props.currently.icon}`}/>
 				<p>Temperature: {this.props.currently.temperature}</p>	
 				<p>Feels Like: {this.props.currently.apparentTemperature}</p>	
 				<p>Chance of Precipitation: {this.props.currently.precipProbability}</p>
@@ -39,3 +39,4 @@ export default class CurrentForecast extends React.Component {
 			</div>
 	}
 }
+
