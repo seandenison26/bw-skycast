@@ -9,7 +9,7 @@ export default class HistoryView extends React.Component {
 	}
 	
 	handleChoice() {
-
+		
 	}
 
 	render() {

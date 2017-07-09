@@ -7,6 +7,7 @@
     "bootstrap": "^3.3.7",
     "d3": "^4.9.1",
     "express": "^4.15.3",
+    "js-cookie": "^2.1.4",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1"

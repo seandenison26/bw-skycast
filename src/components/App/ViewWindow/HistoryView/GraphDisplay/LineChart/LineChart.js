@@ -79,8 +79,8 @@ export default class LineChart extends React.Component {
 }
 
 LineChart.defaultProps = {
-		width: 720,
-		height: 560
+		width: 1080,
+		height: 480
 }
 
 class Axis extends React.Component {
