@@ -2,10 +2,20 @@
 	display: inline;
 	float: right;
 	width: 50%;
-	text-align: left;	
+	text-align: center;	
 }
 
-p {
-	padding: 0;
-	margin: 0;
+.forecast-detail p {
+	text-align: left;
+	font-size: 1em;
+	margin-left: 15%;
+	margin-bottom: 0;
+}
+
+.forecast-detail .wi {
+	font-size: 6em;
+}
+
+.forecast-detail h2 {
+	margin-bottom: 4%;
 }
