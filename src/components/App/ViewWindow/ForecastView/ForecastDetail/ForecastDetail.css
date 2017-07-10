@@ -2,14 +2,15 @@
 	display: inline;
 	float: right;
 	width: 50%;
-	text-align: center;	
+	text-align: center;
+	overflow:scroll;	
 }
 
 .forecast-detail p {
 	text-align: left;
 	font-size: 1em;
-	margin-left: 15%;
 	margin-bottom: 0;
+	width:auto;
 }
 
 .forecast-detail .wi {
@@ -18,4 +19,17 @@
 
 .forecast-detail h2 {
 	margin-bottom: 4%;
+}
+
+.detail-col {
+	display:inline;
+	float:left;
+	width:auto;
+	margin-left: 20%;
+}
+
+.wind-col {
+	display:inline;
+	float: right;
+	margin-right: 25%;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './ChartNav.css';
+import {FormControl, FormGroup,ControlLabel, MenuItem} from 'react-bootstrap';
 
 export default class HistoryView extends React.Component {
 	constructor(props) {
@@ -8,14 +9,22 @@ export default class HistoryView extends React.Component {
 		this.handleChoice = this.handleChoice.bind(this);
 	}
 	
-	handleChoice() {
-		
+	handleChoice(choice) {
+		this.props.handleChoice(choice)	
 	}
 
 	render() {
-		return 	<div className="chart-nav">
+		return 	<FormGroup className="chart-nav">
+				<ControlLabel>Data</ControlLabel>
 				
-			</div>
+				<FormControl componentClass="select" onChange={evt => this.handleChoice(evt)} placeholder="Display Data">
+					<option value="temperature">Temperature</option>		
+					<option value="precipIntensity">Precipitation Intensity</option>		
+					<option value="dewPoint">Dew Point</option>
+					<option value="humidity">Humidity</option>
+					<option value="windSpeed">Wind Speed</option>
+				</FormControl>			
+			</FormGroup>
 	}
 }
 

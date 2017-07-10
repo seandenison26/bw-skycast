@@ -16,6 +16,7 @@ export default class LineChart extends React.Component {
 	}
 	
 	getData(choice) {
+		console.log("New Data");
 		return this.props.data.map((obj) => {
 			return {time: (new Date(obj.time * 1000)), count: obj[choice]}
 		}); 
@@ -24,11 +25,16 @@ export default class LineChart extends React.Component {
 	getViewbox() {
 		return `0 0 ${this.state.width} ${this.props.height}`
 	}
+	
+	componentDidUpdate(prevProps, prevState) {
+		if(this.props.choice !== prevProps.choice) {
+			this.render();
+		}
+	}
 
 	render() {
 		var data = this.getData(this.props.choice);
 
-		//set dimensions
 		var margin = {top: 20, right: 20, bottom: 20, left: 20},
             		w = this.state.width - (margin.left + margin.right),
             		h = this.props.height - (margin.top + margin.bottom);
@@ -36,7 +42,6 @@ export default class LineChart extends React.Component {
 		
 		var transform='translate(' + margin.left + ',' + margin.top + ')';
 		
-		//set range
 		var x = d3.scaleTime().domain(d3.extent(data, (d) => d.time)).rangeRound([0, w]);
 
             	
@@ -58,8 +63,7 @@ export default class LineChart extends React.Component {
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
 			
-		return <div className="chart col-md-8">
-					<h3>{this.props.choice}</h3>
+		return <div>
 				<svg 
 					className="line-chart" 
 					width={this.state.width} 
@@ -126,7 +130,6 @@ class Grid extends React.Component {
 	}
 	
 	componentDidMount() {
-		console.log("mounted");
 		this.renderGrid()
 	}
 

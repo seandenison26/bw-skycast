@@ -29,7 +29,6 @@ export default class SearchBar extends React.Component {
 			Cookies.set('search', array.concat(this.state.value).filter(entry => entry == ""? false: true))
 		}
 		this.props.handleSearch(this.state.value);
-		console.log(Cookies.getJSON('search'));
 	}
     
 	getSearchHistory() {
@@ -39,6 +38,12 @@ export default class SearchBar extends React.Component {
 	searchSelect(event) {
 		this.setState({value: event});
 		this.handleSearch();
+	}
+
+	componentDidUpdate(prevProps,prevState) {
+		if(prevState.value !== this.state.value) {
+			this.handleSearch();
+		}	
 	}
 
 	render() {

@@ -15,20 +15,20 @@ export default class GraphDisplay extends React.Component {
 	}
 	
 	updateChartChoice(choice) {
-		this.setState({ chartChoice: choice});	
+		this.setState({ chartChoice: choice});
+		console.log(this.state.chartChoice)	
 	}	
 
 		
 	
 
 	render() {
-		return 	<div className="graph-display">
+		return 	<div className="graph-display col-md-8 col-offset-4">
 				<ChartNav 
-					className="col-md-2"
+					choice={this.state.choice}
 					handleChoice={this.updateChartChoice}	
 				/>
 				<LineChart 
-					className="col-md-8"	
 					choice={this.state.chartChoice}
 					data={this.props.data}
 				/>		

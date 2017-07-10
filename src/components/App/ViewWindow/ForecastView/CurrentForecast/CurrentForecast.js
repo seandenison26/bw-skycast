@@ -41,7 +41,7 @@ export default class CurrentForecast extends React.Component {
 				</div>
 				
 				<div className="wind-col">
-				<WeatherIcon className="wind-icon" icon={`wi-wind from-${this.props.currently.windBearing}-deg`}/>
+					<WeatherIcon className="wind-icon" icon={`wi-wind from-${this.props.currently.windBearing}-deg`}/>
 					<p>Wind Gust: {this.props.currently.windGust} mph</p>
 					<p>Wind Speed: {this.props.currently.windSpeed} mph</p>
 				</div>
