@@ -17,7 +17,7 @@ export default class ForecastView extends React.Component {
 	}
 	
 	createTabsFromJSON(dailyArray) {
-		let tabs = dailyArray.map((data) => <ForecastDayTab details={data} handleTabClick={this.updateForecastDetail} />)
+		let tabs = dailyArray.map((data) => <ForecastDayTab key={data.time} details={data} handleTabClick={this.updateForecastDetail} />)
 		return tabs;
 	}
 	/*

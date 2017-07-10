@@ -33,17 +33,17 @@ export default class HistoryDateForm extends React.Component {
 	
 	getMonths() {
 		let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		return months.map((month, i) => <option value={i}>{month}</option>);
+		return months.map((month, i) => <option key={month} value={i}>{month}</option>);
 	}
 
 	getDays() {
 		let days = [...Array(31).keys()];
-		return days.map(day => <option value={day + 1}>{day + 1}</option>)
+		return days.map(day => <option key={day} value={day + 1}>{day + 1}</option>)
 	}
 
 	getYears() {
 		let years = [...Array(2018-1970).keys()].reverse();
-		return years.map(year => <option value={year + 1970}>{year + 1970}</option>)
+		return years.map(year => <option key={year} value={year + 1970}>{year + 1970}</option>)
 	}
 
 	handleSearch() {
