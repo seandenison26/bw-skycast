@@ -10,6 +10,7 @@ Make sure to have [Node.js](http://nodejs.org/) installed.
 git clone https://github.com/seandenison26/bw-skycast.git or clone your own fork
 cd bw-skycast
 npm install
+npm run build
 node server/server
 ```
 
