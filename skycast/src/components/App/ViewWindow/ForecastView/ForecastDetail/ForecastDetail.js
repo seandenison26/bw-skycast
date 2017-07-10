@@ -4,12 +4,6 @@ import WeatherIcon from '../../WeatherIcon/WeatherIcon';
 import {DateFormat} from '../../../../../util.js';
 
 export default class ForecastDetail extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	
-	
-
 	render() {
 		return 	<div className="forecast-detail">
 					<h2>Date: {DateFormat.getDateString(new Date(this.props.details.time * 1000))}</h2>

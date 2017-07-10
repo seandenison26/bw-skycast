@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import {FormControl, Forms, FormGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import {FormControl, FormGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
 import * as Cookies from "js-cookie";
 
 export default class SearchBar extends React.Component {
@@ -26,7 +26,7 @@ export default class SearchBar extends React.Component {
 			Cookies.set('search', [this.state.value])
 		}
 		else if(!array.includes(this.state.value) && this.state.value !== "")  {
-			Cookies.set('search', array.concat(this.state.value).filter(entry => entry == ""? false: true))
+			Cookies.set('search', array.concat(this.state.value).filter(entry => entry === ""? false: true))
 		}
 		this.props.handleSearch(this.state.value);
 	}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChartNav.css';
-import {FormControl, FormGroup,ControlLabel, MenuItem} from 'react-bootstrap';
+import {FormControl, FormGroup,ControlLabel} from 'react-bootstrap';
 
 export default class HistoryView extends React.Component {
 	constructor(props) {

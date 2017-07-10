@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './LineChart.css';
 import * as d3 from "d3";
 
-
 export default class LineChart extends React.Component {
 	constructor(props) {
 		super(props)
@@ -39,20 +38,12 @@ export default class LineChart extends React.Component {
             		w = this.state.width - (margin.left + margin.right),
             		h = this.props.height - (margin.top + margin.bottom);
 		
-		
 		var transform='translate(' + margin.left + ',' + margin.top + ')';
 		
 		var x = d3.scaleTime().domain(d3.extent(data, (d) => d.time)).rangeRound([0, w]);
-
-            	
 		var y = d3.scaleLinear().domain(d3.extent(data, (d) => d.count)).rangeRound([h, 0]);	
-
-   	
-	
 				
 		var line = d3.line().x(function(d) { return x(d.time);}).y(function(d) { return y(d.count); });
-
-
         	           		
 		var xAxis = d3.axisBottom(x);
 		var yAxis = d3.axisLeft(y);
@@ -108,11 +99,10 @@ class Axis extends React.Component {
 
 	render() {
 		var translate = "translate(0," +  this.props.h +")";
-		return <g className="axis" transform={this.props.axisType=='x'?translate:""}> </g>
+		return <g className="axis" transform={this.props.axisType==='x'?translate:""}> </g>
 	}	 
             
 }	
-
 
 class Grid extends React.Component {
 	constructor(props) {
@@ -135,10 +125,6 @@ class Grid extends React.Component {
 
 	render() {
 		var translate = `translate(0,${this.props.h})`;
-		return <g className="y-grid" transform={this.props.gridType=='x'?translate:""}> </g>
+		return <g className="y-grid" transform={this.props.gridType==='x'?translate:""}> </g>
 	}	
-}
-
-class Dots extends React.Component {
-
 }
