@@ -12,7 +12,7 @@ var router = express.Router();
 var rootDir = __dirname + '/../' 
 
 //routes the react app
-router.get('*', function(req, res) {
+router.get('/', function(req, res) {
 	res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 });
 
