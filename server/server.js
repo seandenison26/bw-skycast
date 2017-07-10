@@ -1,9 +1,14 @@
-var express = require('express');
-var router = require('./routes');
-var bodyParser = require('body-parser');
-var path = require('path');
+const express = require('express');
+const router = require('./routes');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-var app = express();
+const app = express();
+
+const PORT = process.env.PORT || 3001;
+
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../build')));
 
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended:false}));
@@ -16,4 +21,6 @@ app.use('/',router);
 
 
 //sets port for app to listen on
-app.listen(3001); 
+app.listen(PORT, () => {
+	console.log(`Currently runinng on ${PORT}`);
+}); 

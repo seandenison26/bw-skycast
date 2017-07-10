@@ -13,7 +13,7 @@ var rootDir = __dirname + '/../'
 
 //routes the react app
 router.get('/', function(req, res) {
-	res.send("API Running")
+	res.sendFile(path.resolve(__dirname, '../react-ui-build', 'index.html'));
 });
 
 //returns formatted location JSON 

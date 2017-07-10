@@ -25,8 +25,6 @@ export default class ForecastDetail extends React.Component {
 					<p>Humidity: {this.props.details.humidity * 100}&#37;</p>			
 					<p>Cloud Cover: {this.props.details.cloudCover * 100}&#37;</p>			
 					<p>Pressure: {this.props.details.pressure} millibars</p>			
-					<p>Ozone: {this.props.details.ozone} DU</p>			
-					<p>UV Index: {this.props.details.uvIndex}</p>			
 				</div>
 
 				<div className="wind-col">

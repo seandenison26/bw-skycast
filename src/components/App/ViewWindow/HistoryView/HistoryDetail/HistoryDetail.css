@@ -2,3 +2,14 @@
 	display: block-inline;
 	height: 100%;
 }
+
+.history-detail .wi{
+	text-align: center;
+	font-size: 6em;
+	margin-bottom: 10%;
+}
+
+.history-detail p {
+	text-align: left;
+	margin-left: 5%;
+}

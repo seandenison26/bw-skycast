@@ -40,12 +40,6 @@ export default class SearchBar extends React.Component {
 		this.handleSearch();
 	}
 
-	componentDidUpdate(prevProps,prevState) {
-		if(prevState.value !== this.state.value) {
-			this.handleSearch();
-		}	
-	}
-
 	render() {
 			return	<FormGroup bsSize="lg" className="location-search">
 				
