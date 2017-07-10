@@ -16,7 +16,6 @@ export default class GraphDisplay extends React.Component {
 	
 	updateChartChoice(choice) {
 		this.setState({ chartChoice: choice});
-		console.log(this.state.chartChoice)	
 	}	
 
 		
