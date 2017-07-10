@@ -32,7 +32,10 @@ export default class SearchBar extends React.Component {
 	}
     
 	getSearchHistory() {
-		return Cookies.getJSON('search').map(search => <MenuItem key={search} eventKey={search}>{search}</MenuItem>);
+		let searches = Cookies.getJSON('search');
+       		if(searches.legnth > 0) {		
+			return searches.map(search => <MenuItem key={search} eventKey={search}>{search}</MenuItem>);
+		}
 	}
 
 	searchSelect(event) {
