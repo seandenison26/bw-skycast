@@ -44,16 +44,14 @@ export default class SearchBar extends React.Component {
 	}
 
 	render() {
-			return	<FormGroup bsSize="lg" className="location-search">
+			return	<div className="search-container">
 				
-			<FormControl type="text" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
-			<div className="search-buttons">
+			<FormControl bsSize="large" type="text" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
 			<DropdownButton bsSize="lg" bsStyle="default" onSelect={evt => this.searchSelect(evt)} title="Search History" id="search-history">
 				{this.getSearchHistory()}	
 			</DropdownButton>
-			</div>
 			<Button bsSize="lg" bsStyle="default" type="submit" className="location-submit" value="Search" onClick={this.handleSearch}>Search!</Button>
-       			</FormGroup>
+			</div>
 	}
 }
 
