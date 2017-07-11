@@ -15,7 +15,6 @@ export default class LineChart extends React.Component {
 	}
 	
 	getData(choice) {
-		console.log("New Data");
 		return this.props.data.map((obj) => {
 			return {time: (new Date(obj.time * 1000)), count: obj[choice]}
 		}); 
@@ -33,7 +32,7 @@ export default class LineChart extends React.Component {
 
 	render() {
 		var data = this.getData(this.props.choice);
-
+		
 		var margin = {top: 20, right: 20, bottom: 20, left: 20},
             		w = this.state.width - (margin.left + margin.right),
             		h = this.props.height - (margin.top + margin.bottom);
@@ -53,7 +52,10 @@ export default class LineChart extends React.Component {
    			.ticks(5)
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
-			
+		
+		console.log(this.props.choice);
+		console.log(data);
+		console.log(line(data));
 		return <div>
 				<svg 
 					className="line-chart" 
