@@ -56,8 +56,6 @@ export default class LineChart extends React.Component {
 		return <div>
 				<svg 
 					className="line-chart" 
-					width={this.state.width} 
-					height={this.props.height}
 					viewBox={this.getViewbox()}
 					preserveAspectRatio="xMidYMid meet"
 				>

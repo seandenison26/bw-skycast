@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChartNav.css';
-import {FormControl, FormGroup,ControlLabel} from 'react-bootstrap';
+import {FormControl, FormGroup,} from 'react-bootstrap';
 
 export default class HistoryView extends React.Component {
 	constructor(props) {
@@ -16,8 +16,6 @@ export default class HistoryView extends React.Component {
 
 	render() {
 		return 	<FormGroup className="chart-nav">
-				<ControlLabel>Data</ControlLabel>
-				
 				<FormControl componentClass="select" onChange={evt => this.handleChoice(evt)} placeholder="Display Data">
 					<option value="temperature">Temperature</option>		
 					<option value="precipIntensity">Precipitation Intensity</option>		

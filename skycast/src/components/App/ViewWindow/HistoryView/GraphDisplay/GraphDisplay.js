@@ -19,7 +19,7 @@ export default class GraphDisplay extends React.Component {
 	}	
 
 	render() {
-		return 	<div className="graph-display col-md-8 col-offset-4">
+		return 	<div className="graph-display col-offset-2 col-md-8">
 				<ChartNav 
 					choice={this.state.choice}
 					handleChoice={this.updateChartChoice}	

@@ -56,19 +56,19 @@ export default class HistoryDateForm extends React.Component {
 	}
 
 	render() {
-		return 	<Form inline>
+		return 	<Form inline className="date-form">
 				<FormGroup controlId="historySearch">
-					<ControlLabel> Month </ControlLabel>
+					<ControlLabel className="date-label"> Month: </ControlLabel>
 						<FormControl componentClass="select" value={this.state.month} onChange={this.onMonthChange}>
 							{this.getMonths()}	
 						</FormControl>
 					
-					<ControlLabel> Days </ControlLabel>
+					<ControlLabel className="date-label"> Day: </ControlLabel>
 					<FormControl componentClass="select" value={this.state.day} onChange={this.onDayChange}>
 						{this.getDays()}
 					</FormControl>
 				
-					<ControlLabel> Years </ControlLabel>
+					<ControlLabel className="date-label"> Year: </ControlLabel>
 					<FormControl componentClass="select" value={this.state.year} onChange={this.onYearChange}>
 						{this.getYears()}
 					</FormControl>

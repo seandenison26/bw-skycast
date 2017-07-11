@@ -1,4 +1,5 @@
 .history-detail {
+	float: left;
 	display: block-inline;
 	height: 100%;
 }
