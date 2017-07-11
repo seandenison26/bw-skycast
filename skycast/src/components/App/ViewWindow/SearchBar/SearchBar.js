@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import {FormControl, FormGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import {FormControl, Button, DropdownButton, MenuItem} from 'react-bootstrap';
 import * as Cookies from "js-cookie";
 
 export default class SearchBar extends React.Component {
@@ -45,13 +45,12 @@ export default class SearchBar extends React.Component {
 
 	render() {
 			return	<div className="search-container">
-				
-			<FormControl bsSize="large" type="text" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
-			<DropdownButton bsSize="lg" bsStyle="default" onSelect={evt => this.searchSelect(evt)} title="Search History" id="search-history">
-				{this.getSearchHistory()}	
-			</DropdownButton>
-			<Button bsSize="lg" bsStyle="default" type="submit" className="location-submit" value="Search" onClick={this.handleSearch}>Search!</Button>
-			</div>
+					<FormControl bsSize="large" type="text" placeholder="Search Location" className="search-bar" onChange={this.handleChange} value={this.state.value}/>
+					<DropdownButton bsSize="lg" bsStyle="default" onSelect={evt => this.searchSelect(evt)} title="Search History" id="search-history">
+						{this.getSearchHistory()}	
+					</DropdownButton>
+					<Button bsSize="lg" bsStyle="default" type="submit" className="location-submit" value="Search" onClick={this.handleSearch}>Search!</Button>
+				</div>
 	}
 }
 
