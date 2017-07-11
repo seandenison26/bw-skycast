@@ -9,8 +9,9 @@ export default class HistoryView extends React.Component {
 		this.handleChoice = this.handleChoice.bind(this);
 	}
 	
-	handleChoice(choice) {
-		this.props.handleChoice(choice)	
+	handleChoice(event) {
+	
+		this.props.handleChoice(event.target.value);	
 	}
 
 	render() {

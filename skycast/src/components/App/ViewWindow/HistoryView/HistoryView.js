@@ -8,11 +8,7 @@ import GraphDisplay from './GraphDisplay/GraphDisplay';
 
 export default class HistoryView extends React.Component {
 	
-	componentDidUpdate(prevProps, prevState) {
-		console.log("history updated")
-	}
 	render() {
-		console.log(this.props.historyData.daily.data[0]);
 		return 	<div className="history-view">
 				<HistoryDateForm handleSearch={this.props.handleSearch} searchDate={new Date(this.props.historyData.daily.data[0].time * 1000)}/>	
 				

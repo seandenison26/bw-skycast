@@ -53,9 +53,6 @@ export default class LineChart extends React.Component {
    			.tickSize(-w, 0, 0)
    			.tickFormat("");
 		
-		console.log(this.props.choice);
-		console.log(data);
-		console.log(line(data));
 		return <div>
 				<svg 
 					className="line-chart" 
